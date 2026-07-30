@@ -33,7 +33,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          prismatic-reviews-data
+          cd prismatic-reviews-data
           git config user.name "Prismatic Reviews Bot"
           git config user.email "actions@github.com"
 
