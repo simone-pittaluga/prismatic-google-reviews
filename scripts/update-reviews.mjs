@@ -7,13 +7,10 @@ const client = process.argv[2];
 
 const repositoryPath = process.argv[3];
 
-if (!repositoryPath) {
-  console.error("Usage: node scripts/update-reviews.mjs <client> <repositoryPath>");
-  process.exit(1);
-}
-
-if (!client) {
-  console.error("Usage: node scripts/update-reviews.mjs <client>");
+if (!client || !repositoryPath) {
+  console.error(
+    "Usage: node scripts/update-reviews.mjs <client> <repositoryPath>"
+  );
   process.exit(1);
 }
 
