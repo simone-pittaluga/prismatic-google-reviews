@@ -1,0 +1,24 @@
+{
+  "name": "prismatic-google-reviews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simone-pittaluga/prismatic-google-reviews.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/simone-pittaluga/prismatic-google-reviews/issues"
+  },
+  "homepage": "https://github.com/simone-pittaluga/prismatic-google-reviews#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
