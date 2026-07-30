@@ -66,7 +66,7 @@ const output = {
   reviews
 };
 
-const outputPath = path.join(
+const outputPath = path.resolve(
   config.localRepository,
   config.output
 );

@@ -1,0 +1,44 @@
+name: Update Google Reviews
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout engine
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Clone Centro Alas
+        run: |
+          git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/simone-pittaluga/centro-alas.git
+
+      - name: Generate reviews
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          node scripts/update-reviews.mjs centro-alas
+
+      - name: Commit changes
+        run: |
+          cd centro-alas
+          git config user.name "Prismatic Reviews Bot"
+          git config user.email "actions@github.com"
+
+          git add public/reviews.json
+
+          git diff --cached --quiet || git commit -m "Update Google reviews"
+
+          git push
