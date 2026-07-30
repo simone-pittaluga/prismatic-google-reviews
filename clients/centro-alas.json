@@ -6,7 +6,5 @@
   "branch": "main",
   "output": "public/reviews.json",
   "language": "es",
-  "maxReviews": 3,
-
-  "localRepository": "centro-alas"
+  "maxReviews": 3
 }

@@ -29,7 +29,8 @@ jobs:
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
-          node scripts/update-reviews.mjs centro-alas
+              sed -i 's|/Users/zott/Documents/GitHub/centro-alas|centro-alas|g' clients/centro-alas.json
+              node scripts/update-reviews.mjs centro-alas ./centro-alas
 
       - name: Commit changes
         run: |
