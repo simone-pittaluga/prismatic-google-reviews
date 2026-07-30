@@ -75,6 +75,11 @@ const outputPath = path.join(
   config.output
 );
 
+await fs.mkdir(
+  path.dirname(outputPath),
+  { recursive: true }
+);
+
 await fs.writeFile(
   outputPath,
   JSON.stringify(output, null, 2),

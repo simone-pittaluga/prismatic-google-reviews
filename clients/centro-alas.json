@@ -3,8 +3,8 @@
   "name": "Centro Alas",
   "placeId": "ChIJFd-ioPSJcQ0R9EDdpz0RJWQ",
   "repository": "simone-pittaluga/centro-alas",
-  "branch": "main",
-  "output": "public/reviews.json",
+  "branch": "staging",
+  "output": "centro-alas.json",
   "language": "es",
   "maxReviews": 3
 }

@@ -21,23 +21,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Clone Centro Alas
+      - name: Clone Reviews Repository
         run: |
-          git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/simone-pittaluga/centro-alas.git
+          git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/simone-pittaluga/prismatic-reviews-data.git
 
       - name: Generate reviews
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
-              node scripts/update-reviews.mjs centro-alas ./centro-alas
+              node scripts/update-reviews.mjs centro-alas ./prismatic-reviews-data
 
       - name: Commit changes
         run: |
-          cd centro-alas
+          prismatic-reviews-data
           git config user.name "Prismatic Reviews Bot"
           git config user.email "actions@github.com"
 
-          git add public/reviews.json
+          git add .
 
           git diff --cached --quiet || git commit -m "Update Google reviews"
 
